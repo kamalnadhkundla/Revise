@@ -94,5 +94,52 @@ class solutionHashing{
 }
 
 /*
- * 
+ * Approach : Two Pointer technique ,
+ * first sort the array
+ * keep i and j and k at the last index , check if they are equal to 0 if equal add them into the list, if not?
+ * if not, check the bound if the sum is away from the target decrease the k and increase j if the near. to avoid duplicates make sure you ignore the duplicates.
+ * both the approach has the same time complexity to reduce the extra space complexity of hashmap we use this solution.
  */
+class solutionTwoPointer{
+    public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> list = new ArrayList<>();
+
+       
+        int n=nums.length;
+       for(int i =0;i<n;i++){
+            
+            if(i>0  && nums[i]==nums[i-1]) continue;
+          
+            int j =i+1;
+            int k =n-1;
+          
+            while(j<k){
+              int sum = nums[i]+nums[j]+nums[k];
+            if(sum==0){
+                ArrayList<Integer> temp = new ArrayList<>();
+                System.out.println("hi");
+                temp.add(nums[i]);
+                temp.add(nums[j]);
+                temp.add(nums[k]);
+                list.add(temp);
+                 j++;
+                 k--;
+
+                while(j<k && nums[j]==nums[j-1] ) j++;
+                while(k>0 && nums[j]==nums[k+1]) k--;
+            }
+            else if(sum>0){
+               k--;
+            }
+            else
+               {
+                j++;
+               }
+            
+        }
+       }
+
+        return list;
+    
+}}
