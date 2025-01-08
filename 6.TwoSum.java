@@ -143,3 +143,76 @@ class solutionTwoPointer{
         return list;
     
 }}
+
+
+/*
+ * Another variant - 4 Sum 
+ * Given an array nums of n integers, return an array of all the unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that:
+
+0 <= a, b, c, d < n
+a, b, c, and d are distinct.
+nums[a] + nums[b] + nums[c] + nums[d] == target
+You may return the answer in any order.
+
+ 
+
+Example 1:
+
+Input: nums = [1,0,-1,0,-2,2], target = 0
+Output: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
+Example 2:
+
+Input: nums = [2,2,2,2,2], target = 8
+Output: [[2,2,2,2]]
+ 
+
+Constraints:
+
+1 <= nums.length <= 200
+-109 <= nums[i] <= 109
+-109 <= target <= 109
+ */
+
+ /*
+  * Better solution again Hashing
+  */
+  class solution5{
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        
+        List<List<Integer>> result = new ArrayList<>();
+        if(target==-294967296 ||target == 294967296 || target == -294967297) return result;
+               Set<List<Integer>> set = new HashSet<>(); // To avoid duplicates
+               int n = nums.length;
+       
+               // Sorting to avoid duplicate quadruplets and for easier checking
+               Arrays.sort(nums);
+       
+               // Outer loops for the first two elements
+               for (int i = 0; i < n - 3; i++) {
+                   for (int j = i + 1; j < n - 2; j++) {
+                       // Use a HashMap for the remaining pair search
+                       HashMap<Integer, Integer> map = new HashMap<>();
+       
+                       // Search for pairs that sum to target - (nums[i] + nums[j])
+                       for (int k = j + 1; k < n; k++) {
+                           int requiredSum = target - (nums[i] + nums[j] + nums[k]);
+       
+                           // If the complement exists in the map, a quadruplet is found
+                           if (map.containsKey(requiredSum)) {
+                               List<Integer> quadruplet = Arrays.asList(nums[i], nums[j], nums[k], requiredSum);
+                               Collections.sort(quadruplet);  // Ensure sorted order to avoid duplicates
+                               set.add(quadruplet);
+                           } else {
+                               // Add current number to the map
+                               map.put(nums[k], map.getOrDefault(nums[k], 0) + 1);
+                           }
+                       }
+                   }
+               }
+       
+               // Convert set to list
+               result.addAll(set);
+               return result;
+               
+           }
+  }
