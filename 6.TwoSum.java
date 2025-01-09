@@ -216,3 +216,47 @@ Constraints:
                
            }
   }
+
+  optimal
+  List<List<Integer>> result = new ArrayList<>();
+  Arrays.sort(nums); // Sorting for easier duplicate handling and two-pointer approach
+
+  int n = nums.length;
+
+  // Iterate for the first element (i)
+  for (int i = 0; i < n - 3; i++) {
+      // Avoid duplicates for the first element
+      if (i > 0 && nums[i] == nums[i - 1]) continue;
+
+      // Iterate for the second element (j)
+      for (int j = i + 1; j < n - 2; j++) {
+          // Avoid duplicates for the second element
+          if (j > i + 1 && nums[j] == nums[j - 1]) continue;
+
+          // Two-pointer approach for the third and fourth elements (k and l)
+          int k = j + 1;
+          int l = n - 1;
+
+          while (k < l) {
+              long sum = (long) nums[i] + nums[j] + nums[k] + nums[l];
+
+              if (sum == target) {
+                  result.add(Arrays.asList(nums[i], nums[j], nums[k], nums[l]));
+
+                  // Move both pointers and avoid duplicates
+                  k++;
+                  l--;
+
+                  while (k < l && nums[k] == nums[k - 1]) k++;
+                  while (k < l && nums[l] == nums[l + 1]) l--;
+
+              } else if (sum < target) {
+                  k++; // Increase the sum
+              } else {
+                  l--; // Decrease the sum
+              }
+          }
+      }
+  }
+
+  return result;
