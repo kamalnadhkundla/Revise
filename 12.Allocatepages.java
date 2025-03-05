@@ -57,6 +57,10 @@ public class 12.Allocatepages {
     
 }
 
+// Tip : just check a maximum number can be fit into the possible function if does fit,the min maximum number may fit and dont worry about the splits, if tere are 5 numbers in the array if they want 
+// you to make 3 splits if you can do it in 1 split you can also do it 3 splits right since the arr.lenght is greater if it's not greater you can never make the split, so we can make as many splits we want
+// until it does not surpass the array length if it's may be a bigger maximum number can accomdate it. so just check a max number fits or not if it fit reduce if it does nt increase/
+
 /*Similar questiom
 Given an integer array nums and an integer k, split nums into k non-empty subarrays such that the largest sum of any subarray is minimized.
 
