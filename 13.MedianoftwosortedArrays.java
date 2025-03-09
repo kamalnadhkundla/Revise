@@ -22,7 +22,21 @@ Explanation:
  */
 
 
-
+/*
+ * 
+ * lets check the optimal solution, think in this sceanrio left and right for example if i have 10 elements combination of n1 and n2 that means 
+ * by middle 2 elements will be my median so instead of creating an extra array space, pick 1 element from one array and choose 4 from other array as a part of lefthand side
+ * so check conditions left hand side elements always be less than  right hand side
+ * but you need to swap if(n1>n2) return binarysearch(n2,n1) // swap
+ * why we need to swap? checkout the picture.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
 
 public class 13.MedianoftwosortedArrays {
 
