@@ -22,6 +22,6 @@ You may not alter the values in the list's nodes, only nodes themselves may be c
  * 
  * 
  */
-public class 25.ReverseKthode {
+public class ReverseKthode {
     
 }
