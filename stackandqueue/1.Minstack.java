@@ -2,6 +2,15 @@ package stackandqueue;
 // there are 2 solutions for this 
 // brute and optimal
 // but brute is not space efficient it take o(2*n) space where o(n) is utilised by the optimal
+// In optimal, there is a mathematical formual you should know prior solving this problem.
+//  you have array [12,15,14,16,10] upto 16 you have min element of 12 but after reaching 10 the minele
+// should be changed right that means you are modifying the min when the currentval < minele right
+// if we need to modify it lets perform a mathematical operation so that the previousminval can be restored when we pop 10.
+// currentval<minele
+// currentval-minele<0
+// currentval+currentval-minele<currentval
+// 2*currentval-minele<currentval so push it if val<min
+// when restoring the previous min => minele=2*currentmin-topvalue
 public class 1.Minstack {
     public class optimal{
         class MinStack {
