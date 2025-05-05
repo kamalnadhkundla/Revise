@@ -32,5 +32,20 @@ Explanation: 4 boats (3), (3), (4), (5)
 Approach : sort the array check greedly try the heavies person fits into boat if he is  in calculate the remaining limit of the boat if there is a limit exists why cant we put the lighitest person
  */
 public class 3.BoatsTosavePeople {
+
+    public int numRescueBoats(int[] people, int limit) {
+        Arrays.sort(people);
+    int low = 0, high = people.length-1;
+    int res=0;
+while(low<=high){
+    int remain=limit-people[high];
+    high-=1;
+    res++;
+    if(low<=high && people[low]<=remain) low++;
+
+}
+return res;
+
+    }
     
 }
