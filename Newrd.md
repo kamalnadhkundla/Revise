@@ -13,4 +13,25 @@ Thus, number of possible ending points = 6 - 3 = 3.
 or you can use this as well, n*(n+1)/2 -> it return all the subarrays so 
 formula would be Allthe subarrays- SUbarray that dont include 3
      => All the subarrays - (subarray until index 2) -(subarray after index 3)
-     
+
+
+
+2. Count of subarrays having sum==k
+   
+   use prefix based hashmap
+
+   0 1 2 3 4 5 6
+   1,2,3,-3,1,1,1 
+   1 3 6 3 4 5 6   -> at ind 6 i got a sum 6 if 6-3(target) gives me sum 3 that means there is a subarray from3 to 6 which is of my target right but how many 3 are available there are 2 so count=2 at that index.
+
+   map.put(0,1);
+
+   for(int i : arr){
+    sum+=i;
+    
+    if(map.contains(sum-target))
+         count+=map.get(sum-target)
+
+    map.put(sum,1);
+
+   }
