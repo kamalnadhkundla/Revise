@@ -32,6 +32,6 @@ formula would be Allthe subarrays- SUbarray that dont include 3
     if(map.contains(sum-target))
          count+=map.get(sum-target)
 
-    map.put(sum,1);
+    map.put(sum,map.getOrDefault(sum,0)+1);
 
    }
