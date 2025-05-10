@@ -61,3 +61,4 @@ And we count how many times that has happened.
        [1,2,3] sum is 6 so shrink the window then shrink 1 sum is 5 shrink again, sum is 3 count increased 4
        [3,-3] they are in the limit so increase the count but but [1,2,3,-3] is valid [2,3,-3] is also valid you missed 2 subarrays where the sum<=k
        so sliding window fails when there are negative numbers
+       sliding window works for problems like this 930. Binary Subarrays With Sum
