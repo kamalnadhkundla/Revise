@@ -1,0 +1,1 @@
+1 watch window shrinking video from striver , between while and if
