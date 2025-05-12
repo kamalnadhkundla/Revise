@@ -62,3 +62,12 @@ And we count how many times that has happened.
        [3,-3] they are in the limit so increase the count but but [1,2,3,-3] is valid [2,3,-3] is also valid you missed 2 subarrays where the sum<=k
        so sliding window fails when there are negative numbers
        sliding window works for problems like this 930. Binary Subarrays With Sum
+
+
+
+3. custom compartor sorting in java :
+       Arrays.sort(newarr,(a,  b)->{
+            if (a.ele==b.ele) return arr[a.ind]-arr[b.ind]; // if there are same elements sort by their positions
+            return a.ele-b.ele;
+        }
+        );
