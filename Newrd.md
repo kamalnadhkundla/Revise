@@ -71,3 +71,11 @@ And we count how many times that has happened.
             return a.ele-b.ele;
         }
         );
+
+4.to sort the array while inserting
+public void addNum(int num) {
+    int index = Collections.binarySearch(list, num); // O(log n)
+    if (index < 0) index = -index - 1;
+    list.add(index, num); // O(n) because ArrayList shifts elements
+}
+ binarysearch return  -(indexwhereithastobe+1) if the element does not appear in the array.
