@@ -79,3 +79,5 @@ public void addNum(int num) {
     list.add(index, num); // O(n) because ArrayList shifts elements
 }
  binarysearch return  -(indexwhereithastobe+1) if the element does not appear in the array.
+
+ 5. comparator in java
