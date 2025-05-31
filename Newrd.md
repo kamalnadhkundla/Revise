@@ -80,4 +80,4 @@ public void addNum(int num) {
 }
  binarysearch return  -(indexwhereithastobe+1) if the element does not appear in the array.
 
- 5. comparator in java
+ 5. custom comparator in java with 1d array and 2d arrays (both list and array)
