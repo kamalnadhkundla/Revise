@@ -81,3 +81,4 @@ public void addNum(int num) {
  binarysearch return  -(indexwhereithastobe+1) if the element does not appear in the array.
 
  5. custom comparator in java with 1d array and 2d arrays (both list and array)
+    Arrays.sort(intervals,(int[] a, int [] b)-> Integer.compare(a[0],b[0]));
