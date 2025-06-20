@@ -72,3 +72,16 @@ class Solution {
            return dp[ind1][ind2]= Math.max(recur(ind1-1,ind2,text1,text2),recur(ind1,ind2-1,text1,text2));
     }
 }
+
+
+//printing LCS
+I have a dp Arrays
+
+so for(int i=n;i>=0;i--){
+    for(int j =dp[i].length-1;j>=0;j--){
+        if(text1.charAt(i)==text2.charAt(j)) {
+            i-- ; j--;
+        }else if(dp[i-1][j]>=dp[i][j-1]) i--;
+        else j--
+    }
+}
