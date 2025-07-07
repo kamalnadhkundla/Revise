@@ -82,6 +82,6 @@ so for(int i=n;i>=0;i--){
         if(text1.charAt(i)==text2.charAt(j)) {
             i-- ; j--;
         }else if(dp[i-1][j]>=dp[i][j-1]) i--;
-        else j--
+        else j--;
     }
 }
