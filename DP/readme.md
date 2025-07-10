@@ -3,6 +3,7 @@
 3. write a tabulation method
 
 DP on subsequences : subsequence
+Dp on LongestIncreasing subsequence : Imp problem there is a difference between the (recursive,dp,tab) and the main solution please do
 
 Tablulation : 
   wrtie the base cases
