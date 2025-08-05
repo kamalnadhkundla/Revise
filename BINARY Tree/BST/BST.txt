@@ -1,0 +1,3 @@
+This is an advantage since one the left side the values are less than the root and the opposite way on the right side.
+inorder traversal of the bst is always sorted.
+sometimes make sure you carry out the range in some problems.
