@@ -10,6 +10,7 @@ public class detectCycleUndirectedGraph {
         Pair(int node, int parent) { this.node = node; this.parent = parent; }
     }
 
+
     // Public API: detects a cycle in an undirected graph (1-indexed)
     public static boolean detectCycle(List<List<Integer>> adj) {
         int n = adj.size() - 1;              // because it's 1-indexed (0 is unused)
@@ -17,7 +18,20 @@ public class detectCycleUndirectedGraph {
 
         for (int start = 1; start <= n; start++) {
             if (!visited[start]) {
-                if (bfs(start, adj, visited)) return true;
+                if (dfs(adj,start,visited,-1)) return true;
+            }
+        }
+        return false;
+    }
+    private static boolean dfs(List<List<Integer>> adj,int src, boolean[] visited, int parent){
+        
+        visited[src]=true;
+        System.out.println("from DFS");
+        for(int neih : adj.get(src)){
+            if(!visited[neih])
+                if(dfs(adj,neih,visited,src)==true) return true;
+            else {
+                if(neih!=parent) return true;
             }
         }
         return false;
