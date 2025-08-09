@@ -18,14 +18,23 @@ public class detectCycleUndirectedGraph {
 
         for (int start = 1; start <= n; start++) {
             if (!visited[start]) {
-                if (bfs(start, adj, visited)) return true;
+                if (dfs(adj,start,visited,-1)) return true;
             }
         }
         return false;
     }
-    private static boolean dfs(List<List<Integer>> adj){
-        System.out.println(adj);
-        return true;
+    private static boolean dfs(List<List<Integer>> adj,int src, boolean[] visited, int parent){
+        
+        visited[src]=true;
+        System.out.println("from DFS");
+        for(int neih : adj.get(src)){
+            if(!visited[neih])
+                if(dfs(adj,neih,visited,src)==true) return true;
+            else {
+                if(neih!=parent) return true;
+            }
+        }
+        return false;
     }
 
     private static boolean bfs(int start, List<List<Integer>> adj, boolean[] visited) {
