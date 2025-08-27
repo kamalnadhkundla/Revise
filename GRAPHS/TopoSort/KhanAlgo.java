@@ -1,4 +1,4 @@
-package GRAPHS;
+package GRAPHS.TopoSort;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
