@@ -1,0 +1,1 @@
+Toposort can be obtained by 2methods :DFS and khan algorithm.
