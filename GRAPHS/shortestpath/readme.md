@@ -23,3 +23,8 @@ After 2nd iteration → shortest paths that use at most 2 edges.
 
 After (V-1)th iteration → shortest paths that use at most V-1 edges. Here we follow the standard bellman algorithm rather than a priority queue. if the total weight is less than 0 meaning thats a negative cycle.
  
+
+ Floyd Warshall Algorithm
+ -----------------------
+ this is multi node shortest algorithm so from every node we can say the shortest dist to another node. unlinke djkstra and bellamn ford as they are single source shortest path.
+ 
