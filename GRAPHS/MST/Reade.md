@@ -1,0 +1,4 @@
+Basically you were given a graph of N nodes and M vertices and initially there is no relationnship b/w them.
+ALl you need to do is draw a spanning tree. A spanning tree is a graph of N nodes and exactly n-1 edges. and in a given graph there might be a possibiltiy that the grapg may consisits of more than 1 spanning tree.
+What about Minimum spanning tree : In among all the spanning tree of the graph, a spanning tree which has the minimum weight among all is the minimum spanning tree.
+How do we find MST : we have 2 algorithms basically that are prims and kruskal, but kruskal disjoint set concept(Very Important)
