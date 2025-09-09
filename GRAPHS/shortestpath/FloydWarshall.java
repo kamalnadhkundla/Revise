@@ -19,7 +19,7 @@ public class FloydWarshall {
     for(int k=0;k<nodes;k++){
         for(int i=0;i<dest.length;i++){
             for(int j=0;j<dest[i].length;j++){
-                dest[i][j]=Math.min(dest[i][j],dest[i][k]+dest[k][i]); // if(dest[i][j]<dest[i][k]+dest[k][j]) dest[i][j]=dest[i][k]+dest[k][j]
+                dest[i][j]=Math.min(dest[i][j],dest[i][k]+dest[k][j]); // if(dest[i][j]<dest[i][k]+dest[k][j]) dest[i][j]=dest[i][k]+dest[k][j]
             }
         }
     }
@@ -49,4 +49,56 @@ for(int i=0;i<dest.length;i++){
         floyfwarshalll(edges,4);
     }
     
+}
+leetcode 1334
+import java.util.*;
+
+class Solution {
+    public int findTheCity(int nodes, int[][] edges, int distanceThreshold) {
+        int[][] dist = new int[nodes][nodes];
+
+        // initialize distances
+        for (int i = 0; i < nodes; i++) {
+            Arrays.fill(dist[i], Integer.MAX_VALUE);
+            dist[i][i] = 0;
+        }
+
+        // add undirected edges
+        for (int[] edge : edges) {
+            int u = edge[0], v = edge[1], w = edge[2];
+            dist[u][v] = w;
+            dist[v][u] = w;
+        }
+
+        // Floyd-Warshall
+        for (int k = 0; k < nodes; k++) {
+            for (int i = 0; i < nodes; i++) {
+                for (int j = 0; j < nodes; j++) {
+                    if (dist[i][k] != Integer.MAX_VALUE && dist[k][j] != Integer.MAX_VALUE) {
+                        dist[i][j] = Math.min(dist[i][j], dist[i][k] + dist[k][j]);
+                    }
+                }
+            }
+        }
+
+        // Find the city with smallest count, tie-break on largest index
+        int minCount = Integer.MAX_VALUE;
+        int result = -1;
+
+        for (int i = 0; i < nodes; i++) {
+            int count = 0;
+            for (int j = 0; j < nodes; j++) {
+                if (dist[i][j] <= distanceThreshold) {
+                    count++;
+                }
+            }
+
+            if (count < minCount || (count == minCount && i > result)) {
+                minCount = count;
+                result = i;
+            }
+        }
+
+        return result;
+    }
 }
