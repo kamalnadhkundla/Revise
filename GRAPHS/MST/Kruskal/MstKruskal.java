@@ -49,9 +49,9 @@ public class MstKruskal {
         int parent1=findParent(node1, parent);
         int parent2=findParent(node2, parent);
         if (parent1 == parent2) return;
-        if(rank[node1]>rank[node2]){
+        if(rank[parent1]>rank[parent2]){
             parent[parent2]=parent1;
-        }else if(rank[node1]<rank[node2]){
+        }else if(rank[parent1]<rank[parent2]){
             parent[parent1]=parent2;
         }
         else{
