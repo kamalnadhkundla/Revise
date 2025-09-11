@@ -51,7 +51,7 @@ public class MstKruskal {
         if (parent1 == parent2) return;
         if(rank[parent1]>rank[parent2]){
             parent[parent2]=parent1;
-        }else if(rank[node1]<rank[node2]){
+        }else if(rank[parent1]<rank[parent2]){
             parent[parent1]=parent2;
         }
         else{
