@@ -82,3 +82,26 @@ public void addNum(int num) {
 
  5. custom comparator in java with 1d array and 2d arrays (both list and array)
     Arrays.sort(intervals,(int[] a, int [] b)-> Integer.compare(a[0],b[0]));
+
+
+6. Generate subsets using bitwise
+class Solution {
+    List<List<Integer>> newlist;
+    public List<List<Integer>> subsets(int[] nums) {
+        int n=nums.length;
+        newlist= new ArrayList<>();
+      for(int i=0;i<Math.pow(2,n);i++){
+        List<Integer> list= new ArrayList<>();
+        for(int j=0;j<n;j++){
+            if((i>>j&1)!=0)
+               {
+                   list.add(nums[j]);
+
+               } 
+        }newlist.add(list);
+      }
+      return newlist;
+      
+    }
+
+}

@@ -12,7 +12,4 @@ copy recursion
 
   Meet in the Middle : leetcode 2035
 
-  This is kamal from test
-  
-  must do these s 
-  This is from main
+ 
