@@ -36,3 +36,24 @@
 
     return ans;
 }
+
+WHEN TO USE MONOTONIC PREFIX
+
+Use this technique when the problem has:
+
+✔ Inequalities like:
+sum(l..r) ≥ K
+sum(l..r) > 0
+sum(l..r) ≤ X
+
+✔ Longest or shortest constraint:
+longest subarray with sum ≥ K  
+shortest subarray with sum ≥ K
+
+✔ Need to find earliest prefix satisfying a condition
+✔ prefix comparisons (min, max, ≤, ≥)
+✔ non-equal relationships
+
+Hashmap works only for equalities.
+
+Monotonic prefix works for inequalities.
