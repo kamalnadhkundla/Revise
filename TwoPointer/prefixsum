@@ -57,3 +57,5 @@ shortest subarray with sum ≥ K
 Hashmap works only for equalities.
 
 Monotonic prefix works for inequalities.
+
+https://medium.com/@kundlakamalnadh/monotonic-prefix-sum-54bcabd33ea0
