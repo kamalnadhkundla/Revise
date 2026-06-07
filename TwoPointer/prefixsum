@@ -1,0 +1,61 @@
+// prefix sum another variant
+-> Longest subarray with sum greater than or equal to 0:
+  public static int longestNonNegativeSubarray() {
+
+    int[] arr = {-1, 1, 1, -1, 2};
+    int n = arr.length;
+
+    // Step 1: Prefix sum
+    int[] prefix = new int[n + 1];
+    for (int i = 1; i <= n; i++) {
+        prefix[i] = prefix[i - 1] + arr[i - 1];
+    }
+
+    // Step 2: Monotonic decreasing prefix indices
+    ArrayList<Integer> minPrefInd = new ArrayList<>();
+    minPrefInd.add(0); 
+
+    int last = prefix[0];
+    for (int i = 1; i <= n; i++) {
+        if (prefix[i] < last) {
+            minPrefInd.add(i);
+            last = prefix[i];
+        }
+    }
+
+    // Step 3: Scan from right
+    int ans = 0;
+    int j = minPrefInd.size() - 1;
+
+    for (int r = n; r >= 0; r--) {
+        while (j >= 0 && prefix[minPrefInd.get(j)] <= prefix[r]) {
+            ans = Math.max(ans, r - minPrefInd.get(j));
+            j--;
+        }
+    }
+
+    return ans;
+}
+
+WHEN TO USE MONOTONIC PREFIX
+
+Use this technique when the problem has:
+
+✔ Inequalities like:
+sum(l..r) ≥ K
+sum(l..r) > 0
+sum(l..r) ≤ X
+
+✔ Longest or shortest constraint:
+longest subarray with sum ≥ K  
+shortest subarray with sum ≥ K
+
+✔ Need to find earliest prefix satisfying a condition
+✔ prefix comparisons (min, max, ≤, ≥)
+✔ non-equal relationships
+
+Hashmap works only for equalities.
+
+Monotonic prefix works for inequalities.
+
+https://medium.com/@kundlakamalnadh/monotonic-prefix-sum-54bcabd33ea0
